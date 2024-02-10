@@ -5,7 +5,7 @@ const VVibrate = () => {
 
   const [message, setMessage] = useState("Peace will you be my Valentine");
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const audioRef = useRef(new Audio('/src/assets/vibrate.mpeg'));
+  const audioRef = useRef(new Audio('/src/assets/vibrate.mp3'));
 
   const handleClickno = () => {
     // This for normal vibration not audio
