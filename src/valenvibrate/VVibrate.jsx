@@ -1,24 +1,41 @@
-import React from 'react'
+import React, { useState, useRef }  from 'react'
 import './VVibrate.css'
 
 const VVibrate = () => {
 
-    const handleClick = () => {
-        if ("vibrate" in navigator) {
-          navigator.vibrate(500); // Vibrate for 200ms
-        } else {
-          console.log("Vibration API not supported");
-        }
-      };
+  const [message, setMessage] = useState("Peace will you be my Valentine");
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const audioRef = useRef(new Audio('/src/assets/vibrate.mpeg'));
 
+  const handleClickno = () => {
+    // This for normal vibration not audio
+    if ("vibrate" in navigator) {
+      navigator.vibrate(500); // Vibrate for 200ms or more depend on ur choice and you can also set it to loop if you like
+    } else {
+      console.log("Omo na laptop or iphone you dey use");
+    }; 
+    // Bro this for the audio vibration
+    audioRef.current.loop = true; // Set looping to true
+    audioRef.current.play(); // Start playing the audio
+    setIsAudioPlaying(true); // Update the state to indicate audio is playing
+  }
+
+  const handleClickyes = () => { 
+    setMessage("Thank you for accepting me as your valentine");
     
+    if (isAudioPlaying && audioRef.current) {
+      audioRef.current.pause(); // Pause the audio
+      setIsAudioPlaying(false);
+    }
+  }
+  
   return (
       <div>
           <div className="contentval">
-              <p>Peace will you be my Valentine</p>
+        <p>{message}</p>
               <div className="btn">
-              <button className='yesbtn'>YES ❤️</button>
-              <button className='nobtn' onClick={handleClick}>NO 💀</button>    
+              <button className='yesbtn'  onClick={handleClickyes}>YES ❤️</button>
+          <button className='nobtn' onClick={handleClickno}>NO 💀</button>    
               </div>
               </div>     
 
