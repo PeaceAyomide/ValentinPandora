@@ -10,7 +10,7 @@ const VVibrate = () => {
   const handleClickno = () => {
     // This for normal vibration not audio
     if ("vibrate" in navigator) {
-      navigator.vibrate(500); // Vibrate for 200ms or more depend on ur choice and you can also set it to loop if you like
+      navigator.vibrate(3000); // Vibrate for 200ms or more depend on ur choice and you can also set it to loop if you like
     } else {
       console.log("Omo na laptop or iphone you dey use");
     }; 
