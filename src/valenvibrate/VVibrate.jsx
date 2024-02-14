@@ -7,7 +7,7 @@ import Love from '../valenvibrate/love.gif'
 
 const VVibrate = () => {
 
-  const [message, setMessage] = useState("Will you be my Valentine ?");
+  const [message, setMessage] = useState("Will you be my Val ?");
   const [noMessage, setNoMessage] = useState(false)
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const audioRef = useRef(new Audio(vibrateSound));
